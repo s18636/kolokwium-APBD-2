@@ -34,27 +34,11 @@ namespace kolos_2_cw.Models
 
             modelBuilder.ApplyConfiguration(new PlayersEfConfiguration());
             modelBuilder.ApplyConfiguration(new PlayerTeamEfConfiguration());
-            modelBuilder.ApplyConfiguration(new TeamsEfConfiguration());
+            modelBuilder.ApplyConfiguration(new TeamEfConfiguration());
             modelBuilder.ApplyConfiguration(new ChampionshipsEfConfiguration());
             modelBuilder.ApplyConfiguration(new ChampionshipTeamEfConfiguration());
 
-            //FluentAPI
-            /*
-            modelBuilder.Entity<Studies>()
-                        .HasKey(e => e.IdStudies); //[Key]
-
-            modelBuilder.Entity<Studies>()
-                        .Property(e => e.Name)
-                        .HasMaxLength(100) //[MaxLength(100)]
-                        .IsRequired(); // [Required]
-
-            var dictStudies = new List<Studies>();
-            dictStudies.Add(new Studies { IdStudies = 1, Name = "IT", Description = "AAA" });
-            dictStudies.Add(new Studies { IdStudies = 2, Name = "Graphic design", Description = "BBB" });
-
-            modelBuilder.Entity<Studies>()
-                        .HasData(dictStudies);
-            */
+          
 
         }
     }

@@ -1,6 +1,6 @@
 ﻿using kolos_2_cw.Models;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,9 +21,22 @@ namespace kolos_2_cw
 
         public async Task<IEnumerable<Team>> GetTeams(int idChampionship)
         {
-            var Teams = await _context.Teams
-                                   .Include(m => m.championship_Teams)
-                                   .
+            var teams = await _context.Championship_Team
+                                   .Where(x => x.idChampionship.Equals(idChampionship))
+                                   .OrderByDescending(x => x.score)
+                                   .ToListAsync();
+
+            Dictionary<string, float> teamsDic = new Dictionary<string, float>();
+            foreach (var team in teams)
+            {
+                teamsDic.Add(
+                    _context.Teams.Single(x => x.idTeam.Equals(team.idTeam)).teamName,
+                    team.score
+                );
+            }
+
+            return
+
         }
     }
 }
