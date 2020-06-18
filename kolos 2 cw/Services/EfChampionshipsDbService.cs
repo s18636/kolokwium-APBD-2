@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kolos_2_cw
 {
-    internal class EfChampionshipsDbService : IChampionshipsDbService
+    public class EfChampionshipsDbService : IChampionshipsDbService
     {
 
         private readonly PlayersDbContext _context;
@@ -22,20 +22,11 @@ namespace kolos_2_cw
         public async Task<IEnumerable<Team>> GetTeams(int idChampionship)
         {
             var teams = await _context.Championship_Team
-                                   .Where(x => x.idChampionship.Equals(idChampionship))
-                                   .OrderByDescending(x => x.score)
+                                   .Where(p => p.idChampionship.Equals(idChampionship))
+                                   .OrderByDescending(p => p.score)
                                    .ToListAsync();
 
-            Dictionary<string, float> teamsDic = new Dictionary<string, float>();
-            foreach (var team in teams)
-            {
-                teamsDic.Add(
-                    _context.Teams.Single(x => x.idTeam.Equals(team.idTeam)).teamName,
-                    team.score
-                );
-            }
-
-            return
+            return null;
 
         }
     }
