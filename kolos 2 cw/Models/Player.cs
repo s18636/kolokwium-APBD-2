@@ -14,5 +14,7 @@ namespace kolos_2_cw.Models
         public string lastName { get; set; }
 
         public string dateOfBirth { get; set; }
+
+        public ICollection<Player_Team> Players_Team { get; set; }
     }
 }

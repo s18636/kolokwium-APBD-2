@@ -15,6 +15,10 @@ namespace kolos_2_cw.Configurations
             builder
            .HasKey(e => e.idPlayer); //[Key]
 
+            builder.HasMany(p => p.Players_Team)
+                .WithOne(p => p.Player)
+                .HasForeignKey(p => p.idPlayer);
+
 
             var dictStudies = new List<Player>();
             dictStudies.Add(new Player { idPlayer = 1, firstName = "Maciej", lastName = "Nowak",dateOfBirth = "01-01-1998" });

@@ -13,5 +13,9 @@ namespace kolos_2_cw.Models
 
         public int maxAge { get; set; }
 
+        public ICollection<Championship_Team> championship_Teams { get; set; }
+
+        public ICollection<Player_Team> Player_Teams { get; set; }
+
     }
 }

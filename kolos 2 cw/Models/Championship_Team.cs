@@ -9,12 +9,16 @@ namespace kolos_2_cw.Models
 {
     public class Championship_Team
     {
-        [ForeignKey("Team")]
+        
         public int idTeam { get; set; }
 
-        [ForeignKey("Championship")]
+       
         public int idChampionship { get; set; }
 
         public float score { get; set; }
+
+        public Championship Championship { get; set; }
+
+        public Team Team { get; set; }
     }
 }
